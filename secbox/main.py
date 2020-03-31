@@ -19,11 +19,19 @@ def draw_menu_header():
                                 powered by @jeziellago
     """)    
 # ------------------------------------------------------- #
+def back_to_menu():
+    input('\n[!] Press any key to [MENU]::>')
+# ------------------------------------------------------- #
 def extract_apk():
     draw_menu_header()
     apk_key_word = input('[-] Insert a key word to search for apk |> ')
-    list_packages(apk_key_word)
-    print("\n\n[!] Redirecting to MENU...")
+    if list_packages(apk_key_word):
+        apk_package = input('\n[-] Copy and paste the apk package here |> ')
+        target_dir_to_save = input('\n[-] Where whould like to save apk file? |> ')
+        dump_apk(apk_package, target_dir_to_save)
+        sleep(3)
+    
+    back_to_menu()
 # ------------------------------------------------------- #
 def apktool_decompile(option):
     draw_menu_header()
@@ -40,8 +48,8 @@ def apktool_decompile(option):
     elif option == 4:
         decompile(apk_path, '', where_decompile)
     
-    input('\n[>] %s decompiled in %s. Press any key to [MENU]::>' % (apk_path, where_decompile))
-    
+    print('\n[>] %s decompiled in %s.' % (apk_path, where_decompile))
+    back_to_menu()
 # ------------------------------------------------------- #
 def draw_menu():
     print(
@@ -74,11 +82,10 @@ def main():
             if not SELECTED_OPTION: draw_menu()
             option = input('::> ')
             check_selected_option(option)
-            sleep(4)
+            sleep(2)
     except KeyboardInterrupt:
         draw_menu_header()
         print('<!> Exiting... Bye :)')
-        sleep(2)
         exit()
 
 if __name__ == '__main__':

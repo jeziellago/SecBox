@@ -11,6 +11,10 @@ Script Box for Android Reverse Engineering
                 \/     \/     \/    \/            \/
                                 powered by @jeziellago
 ```
+### Install Dependencies
+```
+$ pip3 install urllib3
+```
 
 ### Run
 ```
