@@ -1,2 +1,2 @@
-# android-sec-box
+# SecBox
 Script Box for Android Reverse Engineering
