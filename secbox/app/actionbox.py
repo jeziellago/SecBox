@@ -1,5 +1,6 @@
 from apkextract import list_packages, dump_apk
 from reveng import decompile, recompile
+from os import path
 
 
 def extract_apk():
@@ -22,11 +23,13 @@ def decompile_all():
     apktool_decompile(3)
 
 def apktool_decompile(option):    
-    apk_path = input('[-] Insert the apk file |> ')
-    where_decompile = input('[-] Where should decompile? (default dir=\'.\') |> ')
+    where_decompile = input('[-] Where should decompile? (Ex.: ~/Documents/my-new-apk/) |> ')
 
-    if len(where_decompile) == 0:
-        where_decompile = '.'
+    if path.isdir(where_decompile):
+        print('\n[!] %s not found.' % where_decompile)
+        return
+
+    apk_path = input('[-] Insert the apk file path (Ex.: ~/Documents/myapp.apk) |> ')
     
     result = None
     if option == 1:
@@ -36,6 +39,15 @@ def apktool_decompile(option):
     else:
         result = decompile(apk_path, '', where_decompile)
     
-    if result:
-        print('\n[>] %s decompiled in %s.' % (apk_path, where_decompile))
-    
+    if result: print('\n[>] %s decompiled in %s.' % (apk_path, where_decompile))
+
+def recompile_apk():
+    source_dir = input('[-] Absolute path from dir with modified sources |> ')
+
+    if not path.isdir(source_dir):
+        print('\n[!] %s not found.' % source_dir)
+        return
+
+    new_apk_path = input('[-] Path for create new APK file (Ex.: ~/Downloads/NewApp.apk) |> ')
+    if recompile(source_dir, new_apk_path):
+        print('\n[>] Finished! New recompiled apk generated in: \n[%s]' % new_apk_path)

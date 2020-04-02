@@ -15,8 +15,8 @@ Script Box for Android Reverse Engineering
 ### What does it do?
 - Extract any apk from any device
 - Decompile apk
-- [WIP] Recompile modified apk
-- More features soon...
+- Recompile modified apk
+> More features soon...
 
 ### Install Dependencies
 ```
