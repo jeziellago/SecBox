@@ -1,6 +1,6 @@
 import os
 from time import sleep
-from actionbox import extract_apk
+from .actionbox import extract_apk, decompile_only_sources, decompile_only_resources, decompile_all
 
 class SecBox:
 
@@ -9,9 +9,9 @@ class SecBox:
         self.menu_options = []
 
         self.__add_menu_option__('Extract apk from device', extract_apk)
-        # self.__add_menu_option__('Decompile only sources from apk')
-        # self.__add_menu_option__('Decompile only resources from apk')
-        # self.__add_menu_option__('Decompile all from apk') 
+        self.__add_menu_option__('Decompile only sources from apk', decompile_only_sources)
+        self.__add_menu_option__('Decompile only resources from apk', decompile_only_resources)
+        self.__add_menu_option__('Decompile all from apk', decompile_all) 
         # self.__add_menu_option__('Recompile modified apk from folder')
 
     def start(self):
@@ -76,7 +76,3 @@ class SecBox:
         
         for menu in self.menu_options:
             print('\t[ %s ] %s' % (menu["id"], menu["description"]))
-
-
-
-SecBox().start()

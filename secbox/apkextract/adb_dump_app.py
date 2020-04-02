@@ -1,6 +1,6 @@
 import os 
 from argparse import ArgumentParser
-from check_adb import check_adb
+from .check_adb import check_adb
 
 ADB = None
 
