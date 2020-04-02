@@ -28,5 +28,3 @@ $ pip3 install urllib3
 $ cd secbox/
 $ python3 main.py
 ```
-
-**This tool is working in progress**
