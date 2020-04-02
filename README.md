@@ -11,6 +11,13 @@ Script Box for Android Reverse Engineering
                 \/     \/     \/    \/            \/
                                 powered by @jeziellago
 ```
+
+### What does it do?
+- Extract any apk from any device
+- Decompile apk
+- [WIP] Recompile modified apk
+- More features soon...
+
 ### Install Dependencies
 ```
 $ pip3 install urllib3
