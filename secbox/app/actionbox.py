@@ -1,5 +1,6 @@
 from apkextract import list_packages, dump_apk
 from reveng import decompile, recompile
+from sign import sign_apk
 from os import path
 
 
@@ -49,5 +50,5 @@ def recompile_apk():
         return
 
     new_apk_path = input('[-] Path for create new APK file (Ex.: ~/Downloads/NewApp.apk) |> ')
-    if recompile(source_dir, new_apk_path):
+    if sign_apk(new_apk_path): #if recompile(source_dir, new_apk_path) and sign_apk(new_apk_path):
         print('\n[>] Finished! New recompiled apk generated in: \n[%s]' % new_apk_path)
