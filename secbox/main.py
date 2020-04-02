@@ -32,7 +32,7 @@ def extract_apk():
         sleep(3)
     
     back_to_menu()
-# ------------------------------------------------------- #
+
 def apktool_decompile(option):
     draw_menu_header()
     apk_path = input('[-] Insert the apk file |> ')
@@ -41,16 +41,18 @@ def apktool_decompile(option):
     if len(where_decompile) == 0:
         where_decompile = '.'
     
+    result = None
     if option == 2:
-        decompile(apk_path, '-r', where_decompile)
+        result = decompile(apk_path, '-r', where_decompile)
     elif option == 3:
-        decompile(apk_path, '-s', where_decompile)
+        result = decompile(apk_path, '-s', where_decompile)
     elif option == 4:
-        decompile(apk_path, '', where_decompile)
+        result = decompile(apk_path, '', where_decompile)
     
-    print('\n[>] %s decompiled in %s.' % (apk_path, where_decompile))
+    if result:
+        print('\n[>] %s decompiled in %s.' % (apk_path, where_decompile))
     back_to_menu()
-# ------------------------------------------------------- #
+
 def draw_menu():
     print(
         """ 
@@ -62,7 +64,7 @@ def draw_menu():
         [ 5 ] Recompile modified apk from folder
         """
     )
-# ------------------------------------------------------- #
+
 def check_selected_option(option: str):
     if option in MENU_OPTIONS:
         SELECTED_OPTION = option
