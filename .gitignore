@@ -3,3 +3,5 @@ __pycache__/
 platform-tools/
 *.zip
 *.apk
+.DS_Store
+scbx

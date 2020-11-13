@@ -18,13 +18,12 @@ Script Box for Android Reverse Engineering
 - Recompile modified apk
 > More features soon...
 
-### Install Dependencies
+### Install
 ```
-$ pip3 install urllib3
+$ sh setup.sh
 ```
 
 ### Run
 ```
-$ cd secbox/
-$ python3 main.py
+$ secbox
 ```
